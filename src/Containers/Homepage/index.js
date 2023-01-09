@@ -33,6 +33,7 @@ const Homepage = () => {
         <Header />
       </div>
       <div className='mb-5 flex items-center flex-col sm:flex-row'>
+        {/* Add option to choose custom months and years ago */}
         <Button text="1 year ago" onClick={() => changeYear(1)} />
         <Button text="2 years ago" onClick={() => changeYear(2)} />
         <Button text="5 years ago" onClick={() => changeYear(5)} />
