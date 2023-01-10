@@ -3,7 +3,9 @@ import React, { useContext } from 'react';
 import { WeatherContext } from '../../Providers/WeatherProvider';
 
 const WeatherData = () => {
-  const { weather, getDate } = useContext(WeatherContext);
+  const { getWeather, getDate } = useContext(WeatherContext);
+
+  const weather = getWeather();
 
   return (
     <div
@@ -16,25 +18,37 @@ const WeatherData = () => {
         dark:text-white'
     >
       <div className='text-lg text-center'>
-        On the date <span className='font-black'>{getDate()}</span>...
+        On <span className='font-black'>{getDate()}</span>...
       </div>
       <br />
-      <div className='p-2 mb-7 rounded-xl bg-gray-400 dark:bg-gray-500 grid grid-cols-1 divide-y md:grid-cols-4 md:divide-y-0'>
+      <div className='text-center p-2 mb-7 rounded-xl bg-gray-400 dark:bg-gray-500 grid grid-cols-1 divide-y md:grid-cols-4 md:divide-y-0'>
         <div className='p-2 md:w-40 flex items-center justify-center md:border-r-4'>
           {
-            weather?.daily?.temperature_2m_max
-              ? <>{weather?.daily?.temperature_2m_max}°&nbsp;<strong>max</strong></>
+            weather.maxTemp
+              ? <>{weather.maxTemp}°&nbsp;<strong>max</strong></>
               : "No data available :("
           }
         </div>
         <div className='p-2 md:w-40 flex items-center justify-center md:border-r-4'>
-          16°&nbsp;<strong>min</strong>
+          {
+            weather.minTemp
+              ? <>{weather.minTemp}°&nbsp;<strong>min</strong></>
+              : "No data available :("
+          }
         </div>
         <div className='p-2 md:w-40 flex items-center justify-center md:border-r-4'>
-          50%&nbsp;<strong>rain</strong>
+          {
+            weather.rainSum
+              ? <>{weather.rainSum}mm&nbsp;<strong>rain</strong></>
+              : "No data available :("
+          }
         </div>
         <div className='p-2 md:w-40 flex items-center justify-center'>
-          30%&nbsp;<strong>humidity</strong>
+          {
+            weather.windSpeed
+              ? <>{weather.windSpeed}km/h&nbsp;<strong>Wind</strong></>
+              : "No data available :("
+          }
         </div>
       </div>
       <div className='flex items-center justify-center text-center'>

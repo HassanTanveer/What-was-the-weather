@@ -4,10 +4,9 @@ const Button = ({ text, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className='
+      className={`
         p-5 
-        ml-5
-        mr-5
+        mx-1
         mb-2
         w-40
         focus:ring 
@@ -18,8 +17,9 @@ const Button = ({ text, onClick }) => {
         active:bg-blue-400
         focus:ring-violet-300
         flex items-center shrink-0 justify-center
-        rounded-xl shadow-lg space-x-4 
-      '
+        rounded-xl shadow-lg space-x-4
+        ${false ? 'dark:bg-black' : ''}
+      `}
     >
       {text}
     </button>
