@@ -46,7 +46,7 @@ const WeatherData = () => {
         <div className='p-2 md:w-40 flex items-center justify-center'>
           {
             weather.windSpeed
-              ? <>{weather.windSpeed}km/h&nbsp;<strong>Wind</strong></>
+              ? <>{weather.windSpeed}km/h&nbsp;<strong>wind</strong></>
               : "No data available :("
           }
         </div>
