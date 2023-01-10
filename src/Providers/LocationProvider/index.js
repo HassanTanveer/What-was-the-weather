@@ -20,8 +20,6 @@ const LocationContextProvider = (props) => {
     );
   }, [])
 
-  console.log(location);
-
   return (
     <LocationContext.Provider value={{ location, changeLocation }}>
       {props.children}

@@ -29,7 +29,6 @@ const WeatherContextProvider = (props) => {
   })
 
   useEffect(() => {
-    console.log(location);
     const startDate = date.toISOString().split('T')[0]
     const endDate = startDate
     fetch(
