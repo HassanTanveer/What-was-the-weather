@@ -12,6 +12,8 @@
     "react-particles": "^2.9.3",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
+    "tsparticles": "^2.9.3",
+    "tsparticles-preset-snow": "^2.9.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
