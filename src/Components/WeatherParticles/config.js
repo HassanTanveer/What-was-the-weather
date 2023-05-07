@@ -11,6 +11,27 @@ const particleConfig = {
   },
 };
 
+export const normalConfig = {
+  background: {
+    image: 'radial-gradient(#4A4A4A, #000)',
+  },
+  particles: {
+    ...particleConfig,
+    color: {
+      value: '#fff',
+    },
+    size: {
+      value: { min: 1, max: 5 },
+    },
+    move: {
+      enable: false,
+      speed: 2,
+      direction: 'right',
+      straight: false,
+    },
+  },
+};
+
 export const heatConfig = {
   background: {
     image: 'radial-gradient(#4A0000, #000)',
@@ -32,9 +53,9 @@ export const heatConfig = {
   },
 };
 
-export const snowConfig = {
+export const coldConfig = {
   background: {
-    image: 'radial-gradient(#00004A, #000)',
+    image: 'radial-gradient(#fff, #41c3cc)',
   },
   particles: {
     ...particleConfig,
@@ -45,7 +66,7 @@ export const snowConfig = {
       value: { min: 1, max: 5 },
     },
     move: {
-      enable: true,
+      enable: false,
       speed: 2,
       direction: 'bottom',
       straight: false,
