@@ -1,23 +1,14 @@
 import React, { useContext } from 'react';
-import { useCallback } from "react";
-import Particles from "react-particles";
-import { loadSnowPreset } from "tsparticles-preset-snow";
 
 import Button from '../../Components/Button';
 import Header from '../../Components/Header';
+import WeatherParticles from '../../Components/WeatherParticles';
 import WeatherData from '../../Components/WeatherData';
 
 import { WeatherContext } from '../../Providers/WeatherProvider';
 
 const Homepage = () => {
   const { changeYear } = useContext(WeatherContext);
-  const particlesInit = useCallback(async engine => {
-    await loadSnowPreset(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async container => {
-    await console.log(container);
-  }, []);
 
   return (
     <>
@@ -48,35 +39,7 @@ const Homepage = () => {
           <WeatherData date="10th January 2022" />
         </div>
       </div >
-      <Particles
-        init={particlesInit}
-        loaded={particlesLoaded}
-        options={{
-          preset: "snow",
-          fpsLimit: 60,
-          background: {
-            backgroundImage: "linear-gradient(to right, white, #BEE3F8)",
-          },
-          particles: {
-            color: {
-              value: "#ffffff",
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 1500,
-              },
-              value: 50,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            size: {
-              value: { min: 1, max: 5 },
-            },
-          },
-        }}
-      />
+      <WeatherParticles />
     </>
   );
 };
