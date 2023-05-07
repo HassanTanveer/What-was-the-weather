@@ -1,10 +1,33 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
 
-import { heatConfig, baseConfig } from './config';
+import {
+  coldConfig,
+  heatConfig,
+  rainConfig,
+  baseConfig,
+  normalConfig
+} from './config';
+import { WeatherContext } from '../../Providers/WeatherProvider';
 
 const WeatherParticles = () => {
+  const { getWeather } = useContext(WeatherContext);
+
+  const weather = getWeather();
+
+  let weatherConfig = normalConfig;
+
+  if (weather?.maxTemp > 30) {
+    weatherConfig = heatConfig;
+  } else if (weather?.maxTemp < 10) {
+    weatherConfig = coldConfig;
+  } else if (weather?.rainSum > 2) {
+    weatherConfig = rainConfig;
+  } else if (weather?.windSpeed > 5) {
+    weatherConfig = rainConfig;
+  }
+
   const particlesInit = useCallback(async engine => {
     await loadFull(engine);
   }, []);
@@ -14,7 +37,7 @@ const WeatherParticles = () => {
   }, []);
 
   const options = {
-    ...heatConfig,
+    ...weatherConfig,
     ...baseConfig
   }
 
