@@ -10,7 +10,7 @@ const WeatherData = () => {
   return (
     <div
       className='
-        p-12
+        p-16
         rounded-xl
         text-black
         bg-gray-300
@@ -21,33 +21,37 @@ const WeatherData = () => {
         On <span className='font-black'>{getDate()}</span>...
       </div>
       <br />
-      <div className='text-center p-2 mb-7 rounded-xl bg-gray-400 dark:bg-gray-500 grid grid-cols-1 divide-y md:grid-cols-4 md:divide-y-0'>
+      <div className='text-center p-4 mb-7 rounded-xl bg-gray-400 dark:bg-gray-500 grid grid-cols-1 divide-y md:grid-cols-4 md:divide-y-0'>
         <div className='p-2 md:w-40 flex items-center justify-center md:border-r-4'>
+          <strong>max</strong>&nbsp;
           {
             weather.maxTemp
-              ? <>{weather.maxTemp}°&nbsp;<strong>max</strong></>
-              : "No data available :("
+              ? <>{weather.maxTemp}°</>
+              : 'No data 😕'
           }
         </div>
         <div className='p-2 md:w-40 flex items-center justify-center md:border-r-4'>
+          <strong>min</strong>&nbsp;
           {
             weather.minTemp
-              ? <>{weather.minTemp}°&nbsp;<strong>min</strong></>
-              : "No data available :("
+              ? <>{weather.minTemp}°</>
+              : 'No data 😕'
           }
         </div>
         <div className='p-2 md:w-40 flex items-center justify-center md:border-r-4'>
+          <strong>rain</strong>&nbsp;
           {
-            weather.rainSum
-              ? <>{weather.rainSum}mm&nbsp;<strong>rain</strong></>
-              : "No data available :("
+            weather.rainSum !== null
+              ? <>{weather.rainSum}mm</>
+              : 'No data 😕'
           }
         </div>
         <div className='p-2 md:w-40 flex items-center justify-center'>
+          <strong>wind</strong>&nbsp;
           {
             weather.windSpeed
-              ? <>{weather.windSpeed}km/h&nbsp;<strong>wind</strong></>
-              : "No data available :("
+              ? <>{weather.windSpeed}km/h</>
+              : 'No data 😕'
           }
         </div>
       </div>
